@@ -21,6 +21,13 @@ socket.on('name_br',function(value){
     msgcontainer.appendChild(joined_block);
 })
 
+socket.on('disc',function(value){
+    let joined_block=document.createElement('div');
+    joined_block.classList.add('msg3');
+    joined_block.innerHTML=value+" disconnected";
+    msgcontainer.appendChild(joined_block);
+})
+
 socket.on('no_of_users',function(value){
     userss.innerHTML=`${value}`;
 })
@@ -28,8 +35,8 @@ socket.on('no_of_users',function(value){
 
 function sendMessage(){
     let date = new Date();
-    let hour = date.getUTCHours();
-    let minutes=date.getUTCMinutes();
+    let hour = date.getHours();
+    let minutes=date.getMinutes();
     let newelement = document.createElement('div');
     newelement.classList.add("msgs");
     let suraj=input.value;
