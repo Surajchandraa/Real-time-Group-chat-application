@@ -1,23 +1,24 @@
 .maincontainer{
     height: 500px;
     width: 600px;
-    border: 1px solid black;
     overflow-y: scroll;
     margin: 0px 300px;
     background-image: url("Speech-Chat-Icon-Transparent-PNG.png");
     background-size: 550px;
     background-repeat: no-repeat;
     backface-visibility: initial;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
 }
 
 .firstcontainer{
     max-height: 60px;
     max-width: 600px;
-    border: 1px solid black;
     margin: 0px 300px;
     display: flex;
-    box-shadow: -10px -5px 5px red;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #logo-image{
     height: 60px;
@@ -43,9 +44,11 @@
 .thirdcontainer{
     height: 60px;
     width: 600px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0px 300px;
-    box-shadow: 10px 5px 5px red;
+    /* box-shadow: 10px 5px 5px red; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 input{
     width: 500px;
@@ -59,6 +62,7 @@ button{
     height: 30px;
     background-color: blueviolet;
     color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 button:hover{
     cursor: pointer;
@@ -67,8 +71,8 @@ button:hover{
 .msgs{
     max-width: 200px;
     min-height: 20px;
-    border: 1px solid black;
-    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
     margin-top: 20px;
     margin-left: 380px;
     background-color: white;
@@ -78,10 +82,12 @@ button:hover{
 .msgs2{
     max-width: 200px;
     min-height: 20px;
-    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 20px;
     margin-left: 20px;
    background-color: white;
+   color: blueviolet;
 }
 
 .msg3{
