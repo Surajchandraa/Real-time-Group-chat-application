@@ -1,9 +1,11 @@
 
-
 let input = document.getElementById('inputfield');
 let submit = document.getElementById('sendmsg')
 let msgcontainer = document.getElementsByClassName('maincontainer')[0];
 let userss=document.getElementById('no')
+let camera=document.getElementById('camera');
+let camerainput=document.getElementById("inputcamera");
+
 
 
 var socket = io()
@@ -14,12 +16,103 @@ do {
 } while (!userName);
 socket.emit('name',userName)
 
+
+
+// ----> this portion is for image handling 
+
+
+camera.addEventListener("click", function() {
+    camerainput.click();
+});
+
+
+
+camerainput.addEventListener('change', function() {
+    const file = camerainput.files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function() {
+            const dataUrl = reader.result;
+            console.log(dataUrl)
+
+            
+            const img = document.createElement('img')
+            
+
+            img.src = dataUrl;
+            socket.emit("image-broadcast",dataUrl);
+            img.classList.add("user-side-image");
+
+            msgcontainer.appendChild(img);
+
+            img.addEventListener("click",function(){
+                let photoimage=document.createElement('img');
+                photoimage.src=dataUrl;
+                photoimage.classList.add("big-photo");
+
+                photoimage.classList.add("zoomed-photo")
+                document.body.appendChild(photoimage)
+
+                
+
+                
+                photoimage.addEventListener("click", function() {
+                    document.body.removeChild(photoimage);
+                });
+            
+            
+            
+            
+            });
+
+            
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
+socket.on("broadcast-image",function(value){
+    const img = document.createElement('img')
+            
+
+    img.src = value;
+    img.classList.add("br-side-image");
+
+    msgcontainer.appendChild(img);
+
+    img.addEventListener("click",function(){
+        let photoimage=document.createElement('img');
+        photoimage.src=value;
+        photoimage.classList.add("big-photo");
+
+        photoimage.classList.add("zoomed-photo")
+        document.body.appendChild(photoimage)
+
+        
+
+        
+        photoimage.addEventListener("click", function() {
+            document.body.removeChild(photoimage);
+        });
+
+})
+})
+
+
+// -----> 
+
 socket.on('name_br',function(value){
     let joined_block=document.createElement('div');
     joined_block.classList.add('msg3');
     joined_block.innerHTML=value+" connected";
     msgcontainer.appendChild(joined_block);
 })
+
+
 
 socket.on('disc',function(value){
     let joined_block=document.createElement('div');
@@ -28,9 +121,12 @@ socket.on('disc',function(value){
     msgcontainer.appendChild(joined_block);
 })
 
+
+
 socket.on('no_of_users',function(value){
     userss.innerHTML=`${value}`;
 })
+
 
 
 function sendMessage(){
@@ -50,6 +146,8 @@ function sendMessage(){
 
 
 submit.addEventListener('click', sendMessage);
+
+
 
 input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {

@@ -38,6 +38,10 @@ io.on('connection',function(socket){
         socket.broadcast.emit('broadcast', user_name);
     });
 
+    socket.on("image-broadcast",function(value){
+        socket.broadcast.emit("broadcast-image",value)
+    })
+
     
 
     socket.on('disconnect',function(){

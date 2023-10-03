@@ -54,7 +54,7 @@ input{
     width: 500px;
     height: 30px;
     margin-top: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     
 }
 button{
@@ -114,4 +114,54 @@ button:hover{
     text-align: start;
     margin-top: 0px;
     color: brown;
+}
+
+#camera{
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+   
+}
+
+.user-side-image{
+    height: 165px;
+    width: 250px;
+    margin-left: 330px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+.user-side-image:hover{
+    opacity: 0.9;
+}
+
+.big-photo {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: zoom-out; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+.zoomed-image {
+    cursor: zoom-out; 
+}
+
+.br-side-image{
+    height: 165px;
+    width: 250px;
+    margin-left: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
+.br-side-image:hover{
+    opacity: 0.9;
 }
