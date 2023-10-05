@@ -36,16 +36,32 @@ camerainput.addEventListener('change', function() {
             const dataUrl = reader.result;
             console.log(dataUrl)
 
+            let date = new Date();
+            let hour = date.getHours();
+            let minutes=date.getMinutes();
+
             
-            const img = document.createElement('img')
+            const img = document.createElement('img');
+            let div1=document.createElement("div");
+            let div2=document.createElement("div");
+
             
 
             img.src = dataUrl;
-            socket.emit("image-broadcast",dataUrl);
+            
             img.classList.add("user-side-image");
+            div2.innerHTML=`<p class='name-of-user'>${userName}</p><p class='time'>${hour}:${minutes}</p>`
+            div2.style.background="white";
+            div1.classList.add("cont")
 
-            msgcontainer.appendChild(img);
+            div1.appendChild(img);
+            div1.appendChild(div2);
 
+            
+            let brr = div1.outerHTML;
+            socket.emit("image-broadcast",brr)
+            msgcontainer.appendChild(div1);
+            console.log(brr)
             img.addEventListener("click",function(){
                 let photoimage=document.createElement('img');
                 photoimage.src=dataUrl;
@@ -53,9 +69,6 @@ camerainput.addEventListener('change', function() {
 
                 photoimage.classList.add("zoomed-photo")
                 document.body.appendChild(photoimage)
-
-                
-
                 
                 photoimage.addEventListener("click", function() {
                     document.body.removeChild(photoimage);
@@ -76,33 +89,33 @@ camerainput.addEventListener('change', function() {
 
 
 socket.on("broadcast-image",function(value){
-    const img = document.createElement('img')
-            
-
-    img.src = value;
+    let img = document.createElement('div');
+        
+    img.innerHTML=value;
+    img.firstElementChild.classList.remove("cont");
     img.classList.add("br-side-image");
+    console.log(img.innerHTML);
+    let dataurl=img.firstElementChild.firstElementChild.src;
 
+   
     msgcontainer.appendChild(img);
-
-    img.addEventListener("click",function(){
+    
+    img.firstElementChild.firstElementChild.addEventListener("click",function(){
         let photoimage=document.createElement('img');
-        photoimage.src=value;
+        photoimage.src=dataurl;
         photoimage.classList.add("big-photo");
 
         photoimage.classList.add("zoomed-photo")
         document.body.appendChild(photoimage)
 
-        
 
-        
+
         photoimage.addEventListener("click", function() {
             document.body.removeChild(photoimage);
         });
 
+    })
 })
-})
-
-
 // -----> 
 
 socket.on('name_br',function(value){
