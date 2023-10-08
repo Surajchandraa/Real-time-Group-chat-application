@@ -15,6 +15,8 @@ This is a group chat web application . In this you can add with your name and ch
 -  since this is not hosted on internet you will have to chat with multiple user by opening multiple windows on your system.
 
 ## Have a look on app:
-<img src="https://github.com/Surajchandraa/Real-time-chat-application/blob/main/screenshots/Screenshot%20from%202023-10-02%2020-00-47.png?raw=true" placeholder="image">
+<img src="https://github.com/Surajchandraa/Real-time-chat-application/blob/main/screenshots/Screenshot%20from%202023-10-02%2020-00-47.png?raw=true" altr="image" width=800>
+
+<img src="https://github.com/Surajchandraa/Real-time-chat-application/blob/main/screenshots/Screenshot%20from%202023-10-05%2019-07-03.png" alt="image" width=800> 
 
   
