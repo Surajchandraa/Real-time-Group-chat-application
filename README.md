@@ -5,6 +5,11 @@ This is a group chat web application . In this you can add with your name and ch
 - clone this repository in your directory and open with code editor.
 - open terminal in project directory and run command "npm i" than all the depedencies will be in your project directory you can see them in package.json file.
 
+## Technology used:
+- node js
+-  express js
+-   socket.io( for real time communication).
+  
 ## How to run this:
 - Open your project directory and open terminal with that directory.
 - run command `nodemon server.js`.
