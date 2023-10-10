@@ -18,6 +18,7 @@ This is a group chat web application . In this you can add with your name and ch
 - when you run server.js file you will be live on `http:://localhost:4500` , open this url on web browser.
 -  now enter your name and will able to do group chat.
 -  since this is not hosted on internet you will have to chat with multiple user by opening multiple windows on your system.
+-  you can join with multiple windows
 
 ## Have a look on app:
 <img src="https://github.com/Surajchandraa/Real-time-chat-application/blob/main/screenshots/Screenshot%20from%202023-10-02%2020-00-47.png?raw=true" altr="image" width=800>
