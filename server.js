@@ -7,6 +7,7 @@ let app = express()
 let user_name="";
 
 app.use(express.static(path.join(__dirname, 'public')));
+const port = process.env.port || 4500;
 
 
 let server = http.createServer(app);
@@ -53,7 +54,7 @@ io.on('connection',function(socket){
     });
 });
 
-server.listen(4500,function(){
+server.listen(port,function(){
     console.log("your server is running at http://localhost:4500")
 })
 
